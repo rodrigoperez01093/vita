@@ -23,7 +23,6 @@ const  Login = () => {
       [name]: value
     })
   }
-  console.log("FORM", userData)
 
   const execLogIn = async(e, logData) => {
     console.log("exec")
