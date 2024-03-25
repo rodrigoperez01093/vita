@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Inicio",
+        "value": "inicio"
+    },
+    {
+        "name": "Transferir",
+        "value": "transferir"
+    },
+    {
+        "name": "Recargar",
+        "value": "recargar"
+    },
+    {
+        "name": "Crypto",
+        "value": "crypto"
+    },
+    {
+        "name": "Perfil",
+        "value": "value"
+    },
+    {
+        "name": "Ayuda",
+        "value": "ayuda"
+    }
+]
