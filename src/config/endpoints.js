@@ -7,6 +7,8 @@ export const endpoints = (name) => {
         user_login: `${SERVER}/auth/sign_in`,
         //user info
         profile: `${SERVER}/profile`,
+        //user transactions
+        transactions: `${SERVER}/transactions`
     }
 
     return endpoints[name]
@@ -20,7 +22,7 @@ export const headers = (name, data) => {
             'App-Name': `${import.meta.env.VITE_APP_NAME}`
         },
         //user info
-        profile: {
+        general: {
             'App-Name': `${import.meta.env.VITE_APP_NAME}`,
             'Access-token': data?.token,
             'Expiry': data?.expiry,
