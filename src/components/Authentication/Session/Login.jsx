@@ -3,10 +3,10 @@ import amico from "/amico.svg"
 import VitaInput from '../../general/Input/VitaInput'
 import PrimaryButton from '../../general/Buttons/PrimaryButton'
 import axios from "axios"
-import { endpoints, headersSigIn } from '../../../config/endpoints'
+import { endpoints, headers } from '../../../config/endpoints'
 import { useNavigate } from 'react-router-dom';
 
-const  Login = () => {
+const  Login = ({setData}) => {
 
   const navigate = useNavigate()
 
@@ -29,12 +29,19 @@ const  Login = () => {
     e.preventDefault()
     try {
       const data = {...logData};
-      const req = await axios.post(endpoints('user_login'), data, headersSigIn());
+      const req = await axios.post(endpoints('user_login'), data, headers('user_login'));
       console.log(req)
       if(req.headers['access-token']) {
-        console.log("TOKEN", req.headers['access-token'] )
+        console.log("TOKEN", req )
         localStorage.setItem(`logged`, 'true')
         localStorage.setItem(`user`, JSON.stringify(req.data.data));
+        setData({
+          token: req.headers['access-token'],
+          expiry: req.headers.expiry,
+          client: req.headers.client,
+          user: req.data.data.attributes.first_name,
+          uid: req.headers.uid
+        })
         navigate('/')
       }
     } catch (error) {

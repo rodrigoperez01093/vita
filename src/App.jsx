@@ -1,15 +1,27 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './components/containers';
+import React, { createContext, useState } from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Dashboard from './components/containers';
 import Login from './components/Authentication/Session/Login';
+import Auth from './components/Authentication/Session/Auth';
 
-function App() {
+export const VitaContext = createContext()
+
+const App = () => {
+
+  const [data, setData] = useState()
 
   return (
     <>
-        <Routes>
-          <Route exact path="/" element={<Home />} />  
-          <Route exact path="/auth/login" element={<Login />} />
-        </Routes>  
+      <VitaContext.Provider value={data}>
+        <BrowserRouter>
+          <Auth>
+            <Routes>
+              <Route exact path="/" element={<Dashboard />} />  
+              <Route exact path="/auth/login" element={<Login setData={setData} />} />
+            </Routes>  
+          </Auth>
+        </BrowserRouter>
+      </VitaContext.Provider>
     </>
   )
 }
