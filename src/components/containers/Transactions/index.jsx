@@ -1,9 +1,10 @@
-import React from 'react'
+
 
 const Transactions = () => {
+
   return (
-    <div>
-      <h1>TRANSACTIONS</h1>
+    <div className='w-full mt-10'>
+     
     </div>
   )
 }
