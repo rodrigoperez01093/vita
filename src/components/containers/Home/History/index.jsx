@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { VitaContext } from '../../../../App'
-import { getListTransactions } from '../Balances/functions/getListTransactions'
+import { getListTransactions } from './functions/getListTransactions'
 
 const History = () => {
     const context = useContext(VitaContext)

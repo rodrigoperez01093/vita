@@ -11,3 +11,7 @@
 background: #DEE0E0;
 border-radius: 5px;
 }
+
+.gradient-border {
+  border-image: linear-gradient(90deg, #05BCB9 0%, #167287 100%); /* Gradiente para el borde */
+}

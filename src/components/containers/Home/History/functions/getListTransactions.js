@@ -1,9 +1,11 @@
+
 import { endpoints, headers } from "../../../../../config/endpoints"
 import axios from "axios"
 
 export const getListTransactions = async(setTransactions, context) => {
     try {
         const data = (await axios.get(endpoints('transactions'), headers('general', context))).data
+        console.log(data.data)
         if(data.data){
             const OrderedData = data.data.map((d,i) => {
                 return {
