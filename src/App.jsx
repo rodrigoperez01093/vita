@@ -14,7 +14,7 @@ const App = () => {
     <>
       <VitaContext.Provider value={data}>
         <BrowserRouter>
-          <Auth>
+          <Auth setData={setData}>
             <Routes>
               <Route exact path="/" element={<Dashboard />} />  
               <Route exact path="/auth/login" element={<Login setData={setData} />} />

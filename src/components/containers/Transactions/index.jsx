@@ -10,6 +10,7 @@ import { endpoints, headers } from "../../../config/endpoints";
 import Alert from "../../global/Alert";
 import { validateForm } from "./functions/validateForm";
 import Arrow from "/back-arrow.svg";
+import VitaSelect from "../../general/Input/VitaSelect";
 
 const Transactions = ({balances}) => {
 
@@ -20,12 +21,14 @@ const Transactions = ({balances}) => {
   const [alertMessage, setAlertNessage] = useState()
   const [showAlert, setShowAlert] = useState(false)
   const [transferData, setTransferData] = useState({
+    currency_sent: 'usd',
+    currency_received: '',
     amount_sent: '',
     email: '',
     description: ''
   });
   const [isFormComplete, setIsFormComplete] = useState(false);
-  const [resumeTransaction, setResumeTransaction] = useState(true);
+  const [resumeTransaction, setResumeTransaction] = useState(false);
   
   useEffect(() => {
     getPrices(setPrices, context)
@@ -60,13 +63,20 @@ const Transactions = ({balances}) => {
   const handleTransaction = async() => {
     try {
       const data = {
-        currency_sent: 'usd',
-        currency_received: 'usdc',
+        currency_sent: transferData.currency_sent,
+        currency_received: transferData.currency_received,
         amount_sent: parseFloat(transferData.amount_sent)
       }
       await axios.post(endpoints('exchange'), data, headers('general', context))
       setShowAlert(true)
       setAlertNessage('Success')
+      setTransferData({
+        currency_sent: 'usd',
+        currency_received: '',
+        amount_sent: '',
+        email: '',
+        description: ''
+      })
     } catch (error) {
       console.log(error)
       setShowAlert(true)
@@ -81,61 +91,15 @@ const Transactions = ({balances}) => {
   
   return (  
     <div className='w-full pl-40 pt-24'>
+      {
+        showAlert &&
+        <Alert 
+          message={alertMessage}
+          setShowAlert={setShowAlert}
+          handleBack={handleBack}
+        />
+      }
       <div className='relative max-w-[500px] w-1/2 flex flex-col items-end'>
-        {
-          resumeTransaction &&
-          <div className="flex flex-col w-full items-end pl-10">
-            <div className="flex w-full">
-              <button onClick={handleBack} className="absolute top-0 left-[-20px]">
-                <img src={Arrow} />
-              </button>
-              <h3 className='text-[28px] font-semibold'>Resumen de transacción</h3>
-            </div>
-            <div className="border flex flex-col w-full h-[200px] mt-20 bg-vita-gray3">
-              <div className="w-full flex flex-row justify-between">
-                <span className="text-sm">Destinatario</span>
-                <span className="text-[16px]">{transferData.email}</span>
-              </div>
-              <div className="w-full flex flex-row justify-between">
-                <span className="text-sm">Tú envías</span>
-                <span className="text-[16px]">{transferData.amount_sent}</span>
-              </div>
-              <div className="w-full flex flex-row justify-between">
-                <span className="text-sm">Tasa de cambio</span>
-                <span className="text-[16px]">-</span>
-              </div>
-              <div className="w-full flex flex-row justify-between">
-                <span className="text-sm">Destinatario recibe</span>
-                <span className="text-[16px]">-</span>
-              </div>
-              <div className="w-full flex flex-row justify-between">
-                <span className="text-sm">Fecha de arribo</span>
-                <span className="text-[16px]">30 minutos</span>
-              </div>
-            </div>
-
-            <div className="w-full flex items-center justify-between mt-40">
-                <SecondaryButton
-                  text={'Atrás'}
-                  handleClick={handleRedirectHome}
-                  styles={'max-w-[180px] w1/2 mr-2.5 mt-20'}
-                />
-                <PrimaryButton
-                  handleClick={handleTransaction} 
-                  text={'Transferir'}
-                  styles={'max-w-[180px] w1/2 ml-2.5 mt-20'}
-                />
-              </div>
-              {
-                showAlert &&
-                <Alert 
-                  message={alertMessage}
-                  setShowAlert={setShowAlert}
-                  handleBack={handleBack}
-                />
-              }
-          </div>
-        }
         {
           !resumeTransaction &&
           <>
@@ -149,12 +113,21 @@ const Transactions = ({balances}) => {
                 styles={'w-[400px]'}
                 onChange={handleInputChange}
                 value={transferData.amount_sent}
+                currency={true}
               />
               <div className="w-full mt-5">
-                <span className="text-vita-blue2 text-[16px] font-semibold">Saldo disponible: ${balances.usd}</span>
+                <span className="text-vita-blue2 text-[16px] font-semibold">Saldo disponible: ${balances.usd} USD</span>
               </div>
+              <VitaSelect 
+                labelText={'Moneda destino'}
+                name={'currency_received'}
+                onChange={handleInputChange}
+                array={Object.keys(balances).filter(currency => currency !== 'usd')}
+                currency={true}
+                value={transferData.currency_received}
+              />
 
-              <h3 className='text-[28px] font-semibold mt-20'>Destinatario</h3>
+              <h3 className='text-[28px] font-semibold mt-10'>Destinatario</h3>
               <VitaInput 
                 labelText={'Correo electrónico'}
                 type={'text'}
@@ -173,7 +146,7 @@ const Transactions = ({balances}) => {
                 onChange={handleInputChange}
                 value={transferData.description}
               />
-              <div className="w-full flex items-center justify-between mt-20">
+              <div className="w-full flex items-center justify-between mt-10">
                 <SecondaryButton
                   text={'Atrás'}
                   handleClick={handleRedirectHome}
@@ -188,6 +161,53 @@ const Transactions = ({balances}) => {
               </div>
             </div>
           </>
+        }
+
+        {
+          resumeTransaction &&
+          <div className="flex flex-col w-full items-end pl-10">
+            <div className="flex w-full">
+              <button onClick={handleBack} className="absolute top-0 left-[-20px]">
+                <img src={Arrow} />
+              </button>
+              <h3 className='text-[28px] font-semibold'>Resumen de transacción</h3>
+            </div>
+            <div className="border flex flex-col items-center justify-evenly px-5 py-5 w-full h-[200px] mt-20 bg-vita-gray3">
+              <div className="w-full flex flex-row justify-between">
+                <span className="text-sm">Destinatario</span>
+                <span className="text-[16px] font-semibold">{transferData.email}</span>
+              </div>
+              <div className="w-full flex flex-row justify-between">
+                <span className="text-sm">Tú envías</span>
+                <span className="text-[16px] text-vita-blue1 font-semibold">$ {parseFloat(transferData.amount_sent).toFixed(2)}</span>
+              </div>
+              <div className="w-full flex flex-row justify-between">
+                <span className="text-sm">Tasa de cambio</span>
+                <span className="text-[16px] text-vita-black font-semibold">{`1 ${transferData.currency_sent.toUpperCase()}`} = { `${prices[transferData.currency_sent][transferData.currency_received]} ${transferData.currency_received.toUpperCase()}`}</span>
+              </div>
+              <div className="w-full flex flex-row justify-between">
+                <span className="text-sm">Destinatario recibe</span>
+                <span className="text-[16px] text-vita-blue1 font-semibold">$ {`${(parseFloat(transferData.amount_sent)*(prices[transferData.currency_sent][transferData.currency_received]))} ${transferData.currency_received.toUpperCase()}`}</span>
+              </div>
+              <div className="w-full flex flex-row justify-between">
+                <span className="text-sm">Fecha de arribo</span>
+                <span className="text-[16px] font-semibold">30 minutos</span>
+              </div>
+            </div>
+
+            <div className="w-full flex items-center justify-between mt-40">
+                <SecondaryButton
+                  text={'Atrás'}
+                  handleClick={handleRedirectHome}
+                  styles={'max-w-[180px] w1/2 mr-2.5 mt-20'}
+                />
+                <PrimaryButton
+                  handleClick={handleTransaction} 
+                  text={'Transferir'}
+                  styles={'max-w-[180px] w1/2 ml-2.5 mt-20'}
+                />
+              </div>
+          </div>
         }
       </div>
     </div>

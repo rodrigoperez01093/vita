@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import ChileFlag from "/Flags-chile.svg";
+import UsdcFlag from "/usdc.svg";
 import UsFlag from "/Flags-us.svg";
 import UsdtFlag from "/Flags-tether.svg";
+import BTCFlag from "/btc.svg";
 import BalanceCard from './BalanceCard';
 
 const Balances = ({balances}) => {
@@ -20,11 +21,16 @@ const Balances = ({balances}) => {
     {
       usdc: balances.usdc,
       currency: 'USDC',
-      flag: ChileFlag
+      flag: UsdcFlag
+    },
+    {
+      btc: balances.btc,
+      currency: 'BTC',
+      flag: BTCFlag
     }
   ])
 
-  console.log("asdad", balancesUser)
+  console.log("asdad", balances)
 
   return (
     <div className='mt-16'>

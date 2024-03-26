@@ -42,13 +42,15 @@ const  Login = ({setData}) => {
         console.log("TOKEN", req )
         localStorage.setItem(`logged`, 'true')
         localStorage.setItem(`user`, JSON.stringify(req.data.data));
-        setData({
+        const data = {
           token: req.headers['access-token'],
           expiry: req.headers.expiry,
           client: req.headers.client,
           user: req.data.data.attributes.first_name,
           uid: req.headers.uid
-        })
+        }
+        localStorage.setItem(`data`, JSON.stringify(data));
+        setData(data)
         navigate('/')
       }
     } catch (error) {

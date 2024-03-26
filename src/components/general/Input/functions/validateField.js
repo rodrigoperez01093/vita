@@ -5,4 +5,5 @@ export const validateField = (name, value) => {
     if (name === 'description' && cond_description.test(value)) return true
     if (name === 'description' && cond_description.test(value)) return true
     if (name === 'amount_sent' && value > 0) return true
+    if (name === 'currency_received' && value.trim() !== '') return true
 }

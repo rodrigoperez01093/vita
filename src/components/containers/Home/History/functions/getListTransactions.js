@@ -2,7 +2,8 @@
 import { endpoints, headers } from "../../../../../config/endpoints"
 import axios from "axios"
 
-export const getListTransactions = async(setTransactions, context) => {
+export const getListTransactions = async(setTransactions, context, setLoading) => {
+    setLoading(true)
     try {
         const data = (await axios.get(endpoints('transactions'), headers('general', context))).data
         console.log(data.data)
@@ -17,8 +18,10 @@ export const getListTransactions = async(setTransactions, context) => {
                 }
             })
             setTransactions(OrderedData)
+            setLoading(false)
         }
     } catch (error) {
         console.log(error)
+        setLoading(false)
     }
 }

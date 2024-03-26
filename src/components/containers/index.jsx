@@ -5,6 +5,7 @@ import Transactions from "./Transactions";
 import { useContext, useEffect, useState } from "react";
 import { VitaContext } from "../../App";
 import { getUsserInfo } from "./Home/functions/getUserInfo";
+import Loader from "../general/Loader";
 
 const Dashboard = () => {
 
@@ -24,7 +25,7 @@ const Dashboard = () => {
       <div className=" w-[80%] h-full">
         {
           loading ?
-          <span>cargando</span>
+          <Loader />
           :
           <>
             {
@@ -43,7 +44,7 @@ const Dashboard = () => {
           </>
         }
       </div>
-    </div>
+    </div> 
   )
 }
 
