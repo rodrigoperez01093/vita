@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import amico from "/amico.svg"
 import VitaInput from '../../general/Input/VitaInput'
 import PrimaryButton from '../../general/Buttons/PrimaryButton'
 import axios from "axios"
 import { endpoints, headers } from '../../../config/endpoints'
 import { useNavigate } from 'react-router-dom';
+import { validateLogin } from './functions/validateLogIn'
 
 const  Login = ({setData}) => {
 
@@ -15,6 +16,12 @@ const  Login = ({setData}) => {
     password: '',
     dev_mode: 'true'
   });
+  const [isFormComplete, setIsFormComplete] = useState(false);
+
+  useEffect(() => {
+    validateLogin(userData, setIsFormComplete)
+  }, [userData])
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -77,6 +84,7 @@ const  Login = ({setData}) => {
             type={'submit'} 
             text={'Iniciar sesión'}
             styles={'mt-20'}
+            disabled={!isFormComplete}
           />
         </form>
 
