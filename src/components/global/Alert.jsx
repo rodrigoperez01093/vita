@@ -4,11 +4,11 @@ import Cross from "/cross.svg"
 
 const Alert = ({message, setShowAlert, handleBack}) => {
   return (
-    <div className='absolute top-0 left-0 z-10 w-screen h-screen bg-vita-gray1 bg-opacity-50'>
+    <div data-test='modal' className='absolute top-0 left-0 z-10 w-screen h-screen bg-vita-gray1 bg-opacity-50'>
         <div className='w-full h-full flex items-center justify-center'>
             <div className='w-1/3 h-[400px] 2xl:h-[700px] flex flex-col items-center 2xl:items-start bg-vita-white'>
                 <div className='w-full flex flex-row items-center justify-end pt-5 pr-5'>
-                    <button onClick={() => {setShowAlert(false); handleBack()}}>
+                    <button data-test='close-modal' onClick={() => {setShowAlert(false); handleBack()}}>
                         <img src={Cross} className='w-[24px] h-[24px]' />
                     </button>
                 </div>
