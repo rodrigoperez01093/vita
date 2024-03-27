@@ -1,0 +1,62 @@
+{
+    "usd": {
+        "btc": 0.00001918923,
+        "btc_buy": 0.000019573014,
+        "btc_sell": 0.000018997337,
+        "btc_min_total_send_external": 0.0004,
+        "btc_fee_send_external": 0.0001,
+        "usdt_fee_send_external": 0,
+        "usdc_fee_send_external": 0,
+        "usdt": 0.999965001225,
+        "usdt_buy": 0.999965001225,
+        "usdt_sell": 0.999965001225,
+        "usdc": 1,
+        "usdc_buy": 1,
+        "usdc_sell": 1
+    },
+    "btc": {
+        "usd": 52112.565225389,
+        "usd_buy": 52112.565225389,
+        "usd_sell": 52112.565225389,
+        "btc_min_total_send_external": 0.0004,
+        "btc_fee_send_external": 0.0001,
+        "usdt_fee_send_external": 0,
+        "usdc_fee_send_external": 0,
+        "usdt": 52110.7413494418,
+        "usdt_buy": 52110.7413494418,
+        "usdt_sell": 52110.7413494418,
+        "usdc": 52112.565225389,
+        "usdc_buy": 52112.565225389,
+        "usdc_sell": 52112.565225389
+    },
+    "usdt": {
+        "usd": 1.000035,
+        "usd_buy": 1.000035,
+        "usd_sell": 1.000035,
+        "btc_min_total_send_external": 0.0004,
+        "btc_fee_send_external": 0.0001,
+        "usdt_fee_send_external": 0,
+        "usdc_fee_send_external": 0,
+        "btc": 0.000019189902,
+        "btc_buy": 0.000019189902,
+        "btc_sell": 0.000019189902,
+        "usdc": 1.000035,
+        "usdc_buy": 1.000035,
+        "usdc_sell": 1.000035
+    },
+    "usdc": {
+        "usd": 1,
+        "usd_buy": 1,
+        "usd_sell": 1,
+        "btc_min_total_send_external": 0.0004,
+        "btc_fee_send_external": 0.0001,
+        "usdt_fee_send_external": 0,
+        "usdc_fee_send_external": 0,
+        "btc": 0.00001918923,
+        "btc_buy": 0.00001918923,
+        "btc_sell": 0.00001918923,
+        "usdt": 0.999965001225,
+        "usdt_buy": 0.999965001225,
+        "usdt_sell": 0.999965001225
+    }
+}

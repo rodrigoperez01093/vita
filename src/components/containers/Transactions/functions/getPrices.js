@@ -4,7 +4,6 @@ import axios from "axios"
 export const getPrices = async(setPrices, context) => {
     try {
         const data = (await axios.get(endpoints('prices'), headers('general', context))).data
-        console.log("PRICES",data)
         setPrices(data.prices)
     } catch (error) {
         console.log(error)
