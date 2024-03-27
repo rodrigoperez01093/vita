@@ -1,0 +1,135 @@
+{
+    "id": "2353",
+    "type": "user_app",
+    "attributes": {
+        "email": "prospecto@vitawallet.io",
+        "created_at": "2024-02-19T15:13:10.673Z",
+        "default_currency": "USD",
+        "first_name": "Prospecto",
+        "last_name": "Vita",
+        "birthdate": "1994-12-19",
+        "document_type": "passport",
+        "document_number": "12123434",
+        "document_expedition_date": "1996-12-19",
+        "country_id": 16,
+        "address": "Casa",
+        "state_id": 10581,
+        "city": null,
+        "zipcode": "5017",
+        "profile_completed": true,
+        "accept_pep": false,
+        "accept_real_info": true,
+        "accept_funds": true,
+        "email_confirmed": true,
+        "account_bank": null,
+        "credits_cards": [],
+        "auto_convert_to_local_currency": false,
+        "second_factor": false,
+        "second_factor_confirmed": true,
+        "profile_verification": "accepted",
+        "is_pin": false,
+        "referral_token": "ubDn9cqkCjEs6yKZ",
+        "is_cashout": true,
+        "is_business_api": false,
+        "civil_status": "single",
+        "phone": "+5812121212",
+        "ocupation": "Prospecto Vita",
+        "gender": "male",
+        "status": "active",
+        "has_sent_transactions": true,
+        "intercom_hash": "96a0b890aba547cbe4e932f4d6e2a6181b15a26427f5d7581da62181e7972065",
+        "powwi_account_id": null,
+        "is_external_terms": false,
+        "is_sent_available": true,
+        "is_email_code_verification": true,
+        "first_transaction": true,
+        "source_biometric": "verification_flow",
+        "status_valoration_transaction": "no_completed",
+        "rejected_note": null,
+        "category": "natural",
+        "login_current": {
+            "country": "Country test, local, QA",
+            "city": "City test, local, QA",
+            "created_at": "2024-03-27T17:51:20.293Z",
+            "ip_address": "35.202.180.114"
+        },
+        "login_last": {
+            "country": "Country test, local, QA",
+            "city": "City test, local, QA",
+            "created_at": "2024-03-27T16:01:53.451Z",
+            "ip_address": "35.202.180.114"
+        },
+        "country_name": "Venezuela",
+        "state_name": "Bolívar",
+        "residence_country_name": "Chile",
+        "city_name": "Municipio Padre Pedro Chien",
+        "city_id": 310982,
+        "residence_country_id": 3,
+        "document_issuing_country_id": 16,
+        "document_issuing_country_name": "Venezuela",
+        "iso_code_country": "VE",
+        "verification_code_expiration_time": 120,
+        "balances": {
+            "usd": 9999915.0,
+            "btc": 0.0,
+            "usdt": 16.88,
+            "usdc": 68.0
+        },
+        "document_image_url": "https://api.qa.vitawallet.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdWdPIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5a17d3dc22b4df4d0d4011410a77ff81d46ff78b/image.png",
+        "back_document_image_url": null,
+        "facial_image_url": "https://api.qa.vitawallet.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdWNPIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4383ab4a950ce9b90210a29b9a4dbfd9fd39b30c/1708355710257.jpg",
+        "avatar": null,
+        "is_vita_card_available": false,
+        "vita_card_account_status": null,
+        "vita_card_status": null,
+        "vita_card_sends": {},
+        "is_service_payment_available": false,
+        "coupon": null,
+        "is_card_pin": false,
+        "biometric_verification": "biometric_rejected",
+        "active_cryptos": {
+            "btc": {
+                "addresses": [
+                    {
+                        "blockcypher": "2MthuZUPbbg3W4LnN8t789YRjGRN2er9sZy"
+                    }
+                ]
+            },
+            "usdt": {
+                "addresses": [
+                    {
+                        "bsc": "0xb4ceb181184d576304b3ec19efc3ecca0ff97478"
+                    }
+                ]
+            },
+            "usdc": {
+                "addresses": [
+                    {
+                        "eth": "0x49f5c4b31bcac3a825145eaa617c2ef4f463da3c"
+                    },
+                    {
+                        "trx": "TC8vdVwjUksKHjaL4bniA2NcGyxxgQbuDe"
+                    }
+                ]
+            }
+        },
+        "politically_exposed_person_check": true,
+        "politically_exposed_person": {},
+        "reason_for_update": null,
+        "business_user": null,
+        "profile_update_alerted_date": null,
+        "default_fiat_currency": "usd",
+        "default_crypto_currency": null
+    },
+    "relationships": {
+        "country": {
+            "data": {
+                "id": "16",
+                "type": "country"
+            }
+        },
+        "referrer": {
+            "data": null
+        }
+    }
+}

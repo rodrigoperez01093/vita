@@ -1,7 +1,7 @@
 import { endpoints, headers } from "../../../../config/endpoints"
 import axios from "axios"
 
-export const getUsserInfo = async(setUserInfo, context, setLoading) => {
+export const getUserInfo = async(setUserInfo, context, setLoading) => {
     setLoading(true)
     try {
         const data = (await axios.get(endpoints('profile'), headers('general', context))).data
