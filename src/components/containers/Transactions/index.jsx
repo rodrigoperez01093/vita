@@ -11,6 +11,7 @@ import Alert from "../../global/Alert";
 import { validateForm } from "./functions/validateForm";
 import Arrow from "/back-arrow.svg";
 import VitaSelect from "../../general/Input/VitaSelect";
+import { postTransaction } from "./functions/postTransaction";
 
 const Transactions = ({balances}) => {
 
@@ -61,37 +62,17 @@ const Transactions = ({balances}) => {
   }
   
   const handleTransaction = async() => {
-    try {
-      const data = {
-        currency_sent: transferData.currency_sent,
-        currency_received: transferData.currency_received,
-        amount_sent: parseFloat(transferData.amount_sent)
-      }
-      await axios.post(endpoints('exchange'), data, headers('general', context))
-      setShowAlert(true)
-      setAlertNessage('Success')
-      setTransferData({
-        currency_sent: 'usd',
-        currency_received: '',
-        amount_sent: '',
-        email: '',
-        description: ''
-      })
-    } catch (error) {
-      console.log(error)
-      setShowAlert(true)
-      setAlertNessage('Error')
-    }
+    postTransaction(transferData, setTransferData, setShowAlert, setAlertNessage, context)
   }
   
   return (  
-    <div className='w-full 2xl:pl-40 pt-16 2xl:pt-24'>
+    <div className='w-full pl-20 2xl:pl-40 pt-16 2xl:pt-24'>
       {
         showAlert &&
         <Alert 
           message={alertMessage}
           setShowAlert={setShowAlert}
-          handleBack={handleBack}
+          handleBack={handleRedirectHome}
         />
       }
       <div className='relative max-w-[500px] w-1/2 flex flex-col items-start'>

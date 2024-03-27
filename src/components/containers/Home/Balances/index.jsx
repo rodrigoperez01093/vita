@@ -9,22 +9,22 @@ const Balances = ({balances}) => {
 
   const [balancesUser, setBalancesUser] = useState([
     {
-      usd: balances.usd,
+      amount: balances.usd,
       currency: 'USD',
       flag: UsFlag
     },
     {
-      usdt: balances.usdt,
+      amount: balances.usdt,
       currency: 'USDT',
       flag: UsdtFlag
     },
     {
-      usdc: balances.usdc,
+      amount: balances.usdc,
       currency: 'USDC',
       flag: UsdcFlag
     },
     {
-      btc: balances.btc,
+      amount: balances.btc,
       currency: 'BTC',
       flag: BTCFlag
     }
@@ -40,7 +40,7 @@ const Balances = ({balances}) => {
               key={i}
               currency={balance.currency}
               flag={balance.flag}
-              balance={balance[balance.currency.toLowerCase()].toFixed(2)}
+              balance={balance.amount?.toFixed(2)}
             />
           ))
         }

@@ -4,7 +4,7 @@ import Home from "./Home";
 import Transactions from "./Transactions";
 import { useContext, useEffect, useState } from "react";
 import { VitaContext } from "../../App";
-import { getUsserInfo } from "./Home/functions/getUserInfo";
+import { getUserInfo } from "./Home/functions/getUserInfo";
 import Loader from "../general/Loader";
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getUsserInfo(setUserInfo, context, setLoading)
+    getUserInfo(setUserInfo, context, setLoading)
   }, [location.search, context])
 
   return (
