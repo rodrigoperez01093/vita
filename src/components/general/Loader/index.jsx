@@ -1,9 +1,14 @@
 import React from 'react'
+import { Spinner } from 'flowbite-react'
 
 const Loader = () => {
   return (
     <div className='w-full h-full flex items-center justify-center'>
-        <h1>cargando pa</h1>
+         <Spinner
+              aria-label="Extra small spinner example"
+              size="xl"
+              color="info"
+          />
     </div>
   )
 }

@@ -30,12 +30,10 @@ const Balances = ({balances}) => {
     }
   ])
 
-  console.log("asdad", balances)
-
   return (
-    <div className='mt-16'>
-      <h2 className='text-2xl'>Mis saldos</h2>
-      <div className='w-[70%] flex justify-between mt-5'>
+    <div className='mt-5 2xl:mt-16'>
+      <h2 className='text-lg 2xl:text-2xl'>Mis saldos</h2>
+      <div className='w-[80%] 2xl:w-[70%] flex justify-between mt-2.5 2xl:mt-5'>
         {
           balancesUser.map((balance,i) => (
             <BalanceCard 

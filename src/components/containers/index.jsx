@@ -13,11 +13,10 @@ const Dashboard = () => {
   const context = useContext(VitaContext)
   const [userInfo, setUserInfo] = useState()
   const [loading, setLoading] = useState(true)
-  console.log("CONTEXT", context)
 
   useEffect(() => {
     getUsserInfo(setUserInfo, context, setLoading)
-  }, [location.search])
+  }, [location.search, context])
 
   return (
     <div className="relative w-full h-full flex">

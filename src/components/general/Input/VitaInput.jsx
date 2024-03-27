@@ -11,11 +11,11 @@ const VitaInput = ({labelText , widths , type , name , value , onChange , placeh
     
     return (
         <div className={`relative flex flex-col mt-4 ${widths} ${styles}`}>
-            <label className="text-sm">{labelText}</label>
+            <label className="text-xs 2xl:text-sm">{labelText}</label>
             <input 
                 type={typeInput}
                 name={name} 
-                className={`h-[54px] w-full border-[1px] border-vita-gray1 rounded-[6px] px-[32px] text-[16px] outline-none no-arrows`}
+                className={`h-[42px] 2xl:h-[54px] w-full border-[1px] border-vita-gray1 rounded-[6px] px-[32px] text-xs 2xl:text-[16px] outline-none no-arrows`}
                 value={value} 
                 onChange={(e) => {onChange(e)}}
                 placeholder={placeholder}
@@ -23,13 +23,13 @@ const VitaInput = ({labelText , widths , type , name , value , onChange , placeh
             />
             {
                 currency &&
-                <div className={`absolute top-9 left-2 w-[24px] h-[24px] ${validateField(name, value) ? '' : 'opacity-50'}`}>
+                <div className={`absolute top-7 2xl:top-9 left-2 w-[18px] h-[18px] 2xl:w-[24px] 2xl:h-[24px] ${validateField(name, value) ? '' : 'opacity-50'}`}>
                     <img src={Money} alt="check" />
                 </div>
             }
             {
                 validateField(name, value) &&
-                <div className="absolute top-9 right-2 w-[24px] h-[24px]">
+                <div className="absolute top-7 2xl:top-9 right-2 w-[18px] h-[18px] 2xl:w-[24px] 2xl:h-[24px]">
                     <img src={check} alt="check" />
                 </div> 
             }
@@ -38,11 +38,11 @@ const VitaInput = ({labelText , widths , type , name , value , onChange , placeh
                 <>
                     {
                         typeInput === 'password' ?
-                        <button onClick={(e) => {e.preventDefault(); setTypeInput('text')}} className="absolute top-9 right-2 w-[24px] h-[24px] cursor-pointer">
+                        <button onClick={(e) => {e.preventDefault(); setTypeInput('text')}} className="absolute top-7 2xl:top-9 right-2  w-[18px] h-[18px] 2xl:w-[24px] 2xl:h-[24px] cursor-pointer">
                             <img src={show} alt="show password" />
                         </button>  
                         :
-                        <button onClick={(e) => {e.preventDefault(); setTypeInput('password')}} className="absolute top-9 right-2 w-[24px] h-[24px] cursor-pointer">
+                        <button onClick={(e) => {e.preventDefault(); setTypeInput('password')}} className="absolute top-7 2xl:top-9 right-2  w-[18px] h-[18px] 2xl:w-[24px] 2xl:h-[24px] cursor-pointer">
                             <img src={showHide} alt="show password" />
                         </button> 
                     }
