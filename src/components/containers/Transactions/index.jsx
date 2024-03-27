@@ -5,8 +5,6 @@ import VitaInput from "../../general/Input/VitaInput"
 import { useLocation, useNavigate } from 'react-router-dom';
 import { VitaContext } from "../../../App";
 import { getPrices } from "./functions/getPrices";
-import axios from "axios";
-import { endpoints, headers } from "../../../config/endpoints";
 import Alert from "../../global/Alert";
 import { validateForm } from "./functions/validateForm";
 import Arrow from "/back-arrow.svg";
