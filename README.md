@@ -7,6 +7,13 @@
 [Ver Demo](https://ephemeral-sable-cf93f1.netlify.app)
 
 </div>
+
+<div align="center">
+
+Las credenciales para iniciar sesión serán enviadas por email.
+
+</div>
+
 <br>
 <h1> Primeros pasos </h1>
 
