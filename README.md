@@ -109,8 +109,6 @@ el cuál tendrá el siguiente contenido
 
 ```
 {
-  "sever": ****,
-  "app_name": ****,
   "email_test": ****,
   "password_test": ****
 }
