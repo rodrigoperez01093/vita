@@ -60,9 +60,9 @@ const  Login = ({setData}) => {
   return (
     <div className='w-full h-full flex flex-row items-center justify-center'>
       <div className='relative w-1/2 h-full flex items-center'>
-        <h1 className="absolute top-[80px] 2xl:top-[120px] left-[120px] text-3xl 2xl:text-[48px] font-semibold">Iniciar sesión</h1>
+        <h1 className="absolute top-[80px] 2xl:top-[120px] left-[120px] 2xl:left-[300px] text-3xl 2xl:text-[48px] font-semibold">Iniciar sesión</h1>
         
-        <form onSubmit={(e) => execLogIn(e, userData)} className='w-[300px] 2xl:w-[400px] h-[350px] ml-[120px]'>
+        <form onSubmit={(e) => execLogIn(e, userData)} className='w-[300px] 2xl:w-[400px] h-[350px] ml-[120px] 2xl:ml-[300px]'>
           <VitaInput 
             labelText={'Correo electrónico'}
             type={'text'}
