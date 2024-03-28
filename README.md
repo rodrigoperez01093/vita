@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[Ver Demo](https://ephemeral-sable-cf93f1.netlify.app/auth/login)
+[Ver Demo](https://ephemeral-sable-cf93f1.netlify.app)
 
 </div>
 <br>
